@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userAuth');
 const adminRoutes = require('./routes/admin/adminAuth');
 const categoryRoute = require('./routes/category');
+const productRoute = require('./routes/product');
 
 const env = require('dotenv');
 env.config();
@@ -25,6 +26,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 app.use('/api', userRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', categoryRoute);
+app.use('/api', productRoute);
 
 app.listen(process.env.PORT, () => {
     console.log('server is running ...');
