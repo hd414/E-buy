@@ -12,7 +12,7 @@ const CategoryShema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    parentid: {
+    parentId: {
         type: String
     }
 },

@@ -25,3 +25,11 @@ exports.auth = async (req, res, next) => {
         res.status(401).send({ error: 'Please authenticate.' })
     }
 }
+
+
+exports.isAdmin = (req, res, next) => {
+    if (req.user.role !== 'admin') {
+        return res.status(200).send({ error: 'access denied...' });
+    }
+    next();
+}
