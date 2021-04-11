@@ -5,6 +5,7 @@ const userRoutes = require('./routes/userAuth');
 const adminRoutes = require('./routes/admin/adminAuth');
 const categoryRoute = require('./routes/category');
 const productRoute = require('./routes/product');
+const cartRoute = require('./routes/cart');
 
 const env = require('dotenv');
 env.config();
@@ -27,6 +28,7 @@ app.use('/api', userRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', categoryRoute);
 app.use('/api', productRoute);
+app.use('/api', cartRoute);
 
 app.listen(process.env.PORT, () => {
     console.log('server is running ...');

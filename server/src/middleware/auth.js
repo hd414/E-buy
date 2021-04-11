@@ -33,3 +33,10 @@ exports.isAdmin = (req, res, next) => {
     }
     next();
 }
+
+exports.isUser = (req, res, next) => {
+    if (req.user.role !== 'user') {
+        return res.status(200).send({ error: 'access denied...' });
+    }
+    next();
+}
