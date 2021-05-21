@@ -18,6 +18,7 @@ exports.auth = async (req, res, next) => {
 
         req.user = user;
         req.token = token;
+        res.cookie('token', token, { expiresIn: '1d' });
 
         next();
 

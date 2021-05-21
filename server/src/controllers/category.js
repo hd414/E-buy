@@ -2,9 +2,20 @@ const Category = require('../models/category');
 const slugify = require('slugify');
 
 exports.addCategory = async (req, res) => {
+
+
+    let categoryUrl = "";
+
+
+
     const categoryObj = {
         name: req.body.name,
-        slug: slugify(req.body.name)
+        slug: slugify(req.body.name),
+    }
+
+    if (req.file) {
+        categoryUrl = req.file.filename;
+        categoryObj.categoryImg = categoryUrl;
     }
 
     if (req.body.parentId) {

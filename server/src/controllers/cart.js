@@ -6,23 +6,35 @@ exports.addToCart = async (req, res) => {
 
     try {
         const cart = await Cart.findOne({ user: req.user._id });
-        // return res.send(user);
+        // return res.send(cart);
 
         if (cart) {
-            // return res.send(user);
-            console.log(cart.cartItems)
-            let itemInd = cart.cartItems.findIndex((p) => {
-                console.log(p.product)
-                JSON.stringify(p.product) == JSON.stringify(req.body.cartItems.product)
-            })
+            // return res.send(cart.cartItems);
+            // console.log(cart.cartItems)
+            // let itemInd = cart.cartItems.findIndex((p) => {
+            //     // console.log(p.product)
+            //     JSON.stringify(p.product) == JSON.stringify(req.body.cartItems.product)
+            // })
+            let itemInd = -1;
+            for (let i = 0; i < cart.cartItems.length; i++) {
+                if (cart.cartItems[i].product == req.body.cartItems.product) {
+                    itemInd = i;
+                    break;
+                }
+            }
 
-            console.log('itemInd ', itemInd);
-            console.log(req.body.cartItems.product)
+            // console.log("itemInd", itemInd);
+            // return res.send(cart.cartItems[0].product);
+            // console.log('itemInd ', itemInd);
+            // console.log(req.body.cartItems.product)
 
             if (itemInd > -1) {
-
+                console.log("error", cart.cartItems[itemInd].quantity)
+                // res.send(cart.cartItems[itemInd].quantity);
                 let quan = cart.cartItems[itemInd].quantity + req.body.cartItems.quantity;
-                let newItemObj = { ...cart.cartItems[itemInd], quantity: quan };
+                const { quantity, _id, product, price } = cart.cartItems[itemInd];
+                let newItemObj = { quantity: quan, _id, product, price };
+                // res.send(newItemObj);
                 cart.cartItems[itemInd] = newItemObj;
             }
             else
