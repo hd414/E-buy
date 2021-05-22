@@ -30,7 +30,7 @@ exports.signIn = async (req, res) => {
 
         res.status(200).send({ user, token })
     } catch (e) {
-        res.status(400).send(e.message)
+        res.status(403).send(e.message)
     }
 
 };

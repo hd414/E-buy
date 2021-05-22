@@ -4,12 +4,13 @@ import './App.css';
 import Home from './containers/Home/Home';
 import Signin from './containers/signin/Signin';
 import Signup from './containers/signup/signup';
+import SecuredRoute from './HOC/SecuredRoute';
 
 function App() {
   return (
     <>
       <Switch>
-        <Route path='/' exact component={Home} />
+        <SecuredRoute path='/' exact component={Home} />
         <Route path="/signin" component={Signin} />
         <Route path='/signup' component={Signup} />
       </Switch>

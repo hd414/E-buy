@@ -6,6 +6,7 @@ const adminRoutes = require('./routes/admin/adminAuth');
 const categoryRoute = require('./routes/category');
 const productRoute = require('./routes/product');
 const cartRoute = require('./routes/cart');
+const cors = require('cors');
 
 const env = require('dotenv');
 env.config();
@@ -13,6 +14,7 @@ env.config();
 const app = express();
 
 // app.use(express.json());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 
