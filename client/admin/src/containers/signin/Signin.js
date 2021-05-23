@@ -6,7 +6,7 @@ import Input from '../../components/UI/Input/input.ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Layout from '../../components/Layout/layout.component';
-import { login, isUserLoggedIn } from '../../actions/index';
+import { login } from '../../actions/index';
 
 const Signin = () => {
 
@@ -18,10 +18,6 @@ const Signin = () => {
     const [error, setError] = useState('');
     const auth = useSelector(state => state.auth);
 
-    useEffect(() => {
-        if (!auth.authenticate)
-            dispatch(isUserLoggedIn())
-    }, [])
 
 
     const userLogin = (e) => {

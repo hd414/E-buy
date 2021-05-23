@@ -10,7 +10,7 @@ router.post('/admin/signin', validationsSignIn, isValid, signIn);
 
 router.post('/admin/signup', validationsSignUp, isValid, signUp);
 
-router.post('/admin/signout', auth, isAdmin, signOut);
+router.post('/admin/signout', auth, signOut);
 
 
 module.exports = router;

@@ -1,8 +1,8 @@
 const User = require('../../models/user');
 
 exports.signUp = async (req, res) => {
-    const { firstName, lastName, username, email, password, contactNumber } = req.body;
-    const user = new User({ firstName, lastName, username, email, password, contactNumber, role: 'admin' });
+    const { firstName, lastName, email, password, contactNumber } = req.body;
+    const user = new User({ firstName, lastName, email, password, contactNumber, role: 'admin' });
 
     try {
         await user.save();

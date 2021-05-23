@@ -7,9 +7,9 @@ exports.validationsSignUp = [
     check('lastName')
         .notEmpty()
         .withMessage('lastname is required'),
-    check('username')
-        .notEmpty()
-        .withMessage('username is required'),
+    // check('username')
+    //     .notEmpty()
+    //     .withMessage('username is required'),
     check('email')
         .notEmpty()
         .isEmail()
