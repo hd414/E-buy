@@ -74,6 +74,7 @@ const Category = (props) => {
         setCategoryName('');
         setParentCategoryId('');
         setShow(false);
+
     }
     const handleShow = () => setShow(true);
 
