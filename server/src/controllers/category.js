@@ -50,6 +50,7 @@ const createCategoryRec = (categories, parentId = null) => {
             _id: cat._id,
             name: cat.name,
             slug: cat._slug,
+            parentId: cat.parentId,
             children: createCategoryRec(categories, cat._id)
         });
     }
